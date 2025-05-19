@@ -1,0 +1,137 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    background-color: #000000; /* Black background */
+    color: #ff69b4;  /* Pink color for text */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+h1.title {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* Hobbies Section */
+.hobbies {
+    background-color: #ff69b4; /* Pink background for hobbies section */
+    color: #000000;  /* Black text */
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.hobbies h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.2em;
+    padding: 8px 0;
+    text-align: center;
+}
+
+/* Image Section */
+.image-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+/* Favorite Website Section */
+.favorite-website {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+.favorite-website a {
+    color: #ff69b4;  /* Pink color for link */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.favorite-website a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #000000;
+    color: #ff69b4;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    border-radius: 10px; 
+    /* round the button */
+}
+/* Contact Form Section */
+.contact-form-section {
+    background-color: #ffffff;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-section label {
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #333;
+}
+
+.contact-form-section input[type="text"],
+.contact-form-section input[type="email"],
+.contact-form-section textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-form-section input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.contact-form-section input[type="submit"] {
+    background-color: #ff66b2;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form-section input[type="submit"]:hover {
+    background-color: #e65c9d;
+}
+

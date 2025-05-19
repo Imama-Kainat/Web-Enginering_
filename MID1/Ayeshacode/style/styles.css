@@ -1,0 +1,204 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffdb99; /* Soft Peach */
+    color: #900C3F; /* Deep Burgundy */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html, body {
+    cursor: none;
+}
+
+/* Custom Cursor */
+#customCursor {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #000000; /* Sunset Orange */
+    background-color: rgba(255, 88, 51, 0);
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+#cursorArrow {
+    position: absolute;
+    font-size: 14px;
+    color: #070100;
+    transition: transform 0.1s ease;
+}
+
+/* Header */
+header {
+    background: linear-gradient(45deg, #FF5733, #FFC300); /* Sunset Orange + Golden Yellow */
+    color: #FFE5B4; /* Soft Peach */
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 12px;
+    background: #FF5733; /* Sunset Orange */
+    padding: 14px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav ul li:hover {
+    background: #FF6F61; /* Electric Coral */
+    transform: translateY(-4px) rotate(-3deg);
+    box-shadow: 0 6px 12px rgba(255, 87, 51, 0.3);
+}
+
+nav ul li a {
+    color: #FFE5B4; /* Soft Peach */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(45deg, #FF5733, #FFC300);
+    color: #FFE5B4;
+    text-align: center;
+    padding: 12px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #3E2723; /* Dark Chocolate Brown */
+    color: #FFDAB9; /* Peach Puff */
+}
+
+.dark-mode header,
+.dark-mode footer {
+    background: #2e1d1a; /* Warm Cocoa */
+}
+
+.dark-mode nav ul li {
+    background-color: #3E2723; /* Muted Brown */
+}
+
+.dark-mode nav ul li:hover {
+    background-color: #5d3d37; /* Soft Beige */
+    color: #3E2723;
+}
+
+.dark-mode #customCursor {
+    border-color: #D7CCC8; /* Soft Beige */
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+    padding: 12px 20px;
+    background: transparent;
+    color: #900C3F;
+    cursor: pointer;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+#theme-toggle:hover {
+    background-color: #FF5733;
+    color: #FFE5B4;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+#name {
+    float: left;
+}
+/* General form styling */
+#request {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form heading */
+  #request h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Label styling */
+  #request-form label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    color: #555;
+  }
+  
+  /* Input and textarea styling */
+  #request-form input,
+  #request-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  
+  /* Focus effect */
+  #request-form input:focus,
+  #request-form textarea:focus {
+    border-color: #FF5733;
+    outline: none;
+  }
+  
+  /* Submit button styling */
+  #request-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #FF5733;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 15px;
+  }
+  
+  #request-form button:hover {
+    background-color: #fe451b;
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 600px) {
+    #request {
+      width: 90%;
+    }
+  }
+  main h1 {
+    font-size: 4rem; /* Double the default h1 size */
+    text-align: center;
+    font-weight: bold;
+    margin: 20px 0;
+  }

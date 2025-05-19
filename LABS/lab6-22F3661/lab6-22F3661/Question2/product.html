@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Products</h1>
+        <ul>
+            <li>
+                Product 1 <button onclick="addToCart('Product 1')">Add to Cart</button>
+            </li>
+            <li>
+                Product 2 <button onclick="addToCart('Product 2')">Add to Cart</button>
+            </li>
+            <li>
+                Product 3 <button onclick="addToCart('Product 3')">Add to Cart</button>
+            </li>
+        </ul>
+        <button onclick="window.location.href = 'cart.html';">Go to Cart</button>
+    </div>
+
+    <script>
+        // Add product to the cart and store it in a cookie
+        function addToCart(product) {
+            let cart = getCart();
+            cart.push(product);
+            document.cookie = 'cart=' + JSON.stringify(cart) + '; path=/';
+        }
+
+        // Retrieve cart from cookies
+        function getCart() {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [name, value] = cookie.trim().split('=');
+                if (name === 'cart') {
+                    return JSON.parse(value);
+                }
+            }
+            return [];
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!-- Use LocalStorage for long-term storage of non-sensitive data across sessions.
+Use SessionStorage for temporary storage during a single session.
+Use Cache Storage for caching assets and responses in PWAs or offline-first applications. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Question</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Who is Bewkoof?</h1>
+        <form id="quizForm">
+            <fieldset>
+                <legend>Choose your answer</legend>
+
+                <input type="radio" id="paris" name="answer" value="Paris">
+                <label for="paris">Noor</label><br>
+
+                <input type="radio" id="london" name="answer" value="London">
+                <label for="london">Imama</label><br>
+
+                <input type="radio" id="berlin" name="answer" value="Berlin">
+                <label for="berlin">Zainab</label><br><br>
+
+            </fieldset>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked').value;
+
+            // Store the selected answer in sessionStorage
+            sessionStorage.setItem('answer', selectedAnswer);
+
+            // Redirect to result page
+            window.location.href = 'result.html';
+        });
+    </script>
+</body>
+</html>

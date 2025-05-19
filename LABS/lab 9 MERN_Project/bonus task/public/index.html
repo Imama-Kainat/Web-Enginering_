@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Location Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #map { 
+      height: 400px; 
+      margin-bottom: 20px; 
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    form {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    form input { 
+      display: block; 
+      margin-bottom: 15px; 
+      width: 100%; 
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    form button { 
+      display: block; 
+      width: 100%; 
+      padding: 12px; 
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    form button:hover {
+      background: #45a049;
+    }
+    #response {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f5e9;
+      border-radius: 4px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Register an Event</h2>
+  <a href="/events.html" style="display: block; text-align: center; margin-bottom: 20px; color: #4CAF50; text-decoration: none;">View All Events →</a>
+  <form id="eventForm">
+    <label for="eventName">Event Name</label>
+    <input type="text" id="eventName" placeholder="Enter event name" required />
+    
+    <label for="organizerName">Organizer Name</label>
+    <input type="text" id="organizerName" placeholder="Enter organizer name" required />
+    
+    <label for="date">Event Date</label>
+    <input type="date" id="date" required />
+    
+    <label>Event Location (Click on the map to set location)</label>
+    <div id="map"></div>
+    <input type="hidden" id="lat" />
+    <input type="hidden" id="lng" />
+    
+    <button type="submit">Register Event</button>
+  </form>
+
+  <div id="response"></div>
+
+  <script src="script.js"></script>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9qcAUQzzmwdArNhvqAeC2Y_sIYc9wZ9E&callback=initMap" async defer></script>
+</body>
+</html>

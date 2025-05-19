@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View All Events</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #map { 
+      height: 500px; 
+      margin-bottom: 20px; 
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .events-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .event-card {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .event-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .event-card h3 {
+      margin-top: 0;
+      color: #333;
+    }
+    .event-info {
+      margin: 5px 0;
+    }
+    .event-date {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 15px;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .back-btn:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <a href="/" class="back-btn">← Back to Registration</a>
+  <h2>All Registered Events</h2>
+  
+  <div id="map"></div>
+  
+  <div id="events-container" class="events-container">
+    <!-- Events will be loaded here dynamically -->
+    <p id="loading">Loading events...</p>
+  </div>
+
+  <script>
+    let map;
+    let markers = [];
+    let events = [];
+
+    // Initialize Google Map
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 20.5937, lng: 78.9629 },
+        zoom: 4
+      });
+      loadEvents();
+    }
+
+    // Fetch all events from the API
+    async function loadEvents() {
+      try {
+        const response = await fetch('/api/events');
+        events = await response.json();
+        
+        if (events.length === 0) {
+          document.getElementById('loading').textContent = 'No events found';
+          return;
+        }
+        
+        displayEvents(events);
+        addMarkersToMap(events);
+      } catch (error) {
+        console.error('Error loading events:', error);
+        document.getElementById('loading').textContent = 'Error loading events. Please try again.';
+      }
+    }
+
+    // Display events in cards
+    function displayEvents(events) {
+      const container = document.getElementById('events-container');
+      container.innerHTML = '';
+      
+      events.forEach(event => {
+        const card = document.createElement('div');
+        card.className = 'event-card';
+        card.dataset.id = event._id;
+        
+        const date = new Date(event.date);
+        const formattedDate = date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        });
+
+        card.innerHTML = `
+          <h3>${event.eventName}</h3>
+          <p class="event-info">Organizer: ${event.organizerName}</p>
+          <p class="event-date">Date: ${formattedDate}</p>
+        `;
+        
+        card.addEventListener('click', () => {
+          // Center map on the clicked event
+          map.setCenter({
+            lat: event.location.lat,
+            lng: event.location.lng
+          });
+          map.setZoom(14);
+          
+          // Find and bounce the marker
+          const marker = markers.find(m => m.id === event._id);
+          if (marker) {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(() => marker.setAnimation(null), 1500);
+          }
+        });
+        
+        container.appendChild(card);
+      });
+    }
+
+    // Add markers for all events to the map
+    function addMarkersToMap(events) {
+      // Clear existing markers
+      markers.forEach(marker => marker.setMap(null));
+      markers = [];
+      
+      const bounds = new google.maps.LatLngBounds();
+      
+      events.forEach(event => {
+        const marker = new google.maps.Marker({
+          position: {
+            lat: event.location.lat,
+            lng: event.location.lng
+          },
+          map: map,
+          title: event.eventName,
+          animation: google.maps.Animation.DROP
+        });
+        
+        // Store the event ID with the marker
+        marker.id = event._id;
+        
+        // Add info window
+        const infoWindow = new google.maps.InfoWindow({
+          content: `
+            <div>
+              <h3>${event.eventName}</h3>
+              <p>Organizer: ${event.organizerName}</p>
+              <p>Date: ${new Date(event.date).toLocaleDateString()}</p>
+            </div>
+          `
+        });
+        
+        marker.addListener('click', () => {
+          infoWindow.open(map, marker);
+        });
+        
+        markers.push(marker);
+        bounds.extend(marker.getPosition());
+      });
+      
+      // Adjust map to show all markers
+      if (markers.length > 0) {
+        map.fitBounds(bounds);
+      }
+    }
+  </script>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9qcAUQzzmwdArNhvqAeC2Y_sIYc9wZ9E&callback=initMap" async defer></script>
+</body>
+</html> 

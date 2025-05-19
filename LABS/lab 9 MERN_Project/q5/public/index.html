@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Modern To-Do List</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: #f2f2f2;
+    }
+    .todo-item.done .task-text {
+      text-decoration: line-through;
+      color: #888;
+    }
+    .todo-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .todo-actions i {
+      cursor: pointer;
+      margin-left: 12px;
+    }
+    .task-text {
+      flex-grow: 1;
+      margin-left: 10px;
+    }
+    .form-inline {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body class="container py-5">
+  <h2 class="mb-4 text-center">📝 My To-Do List</h2>
+
+  <form id="todoForm" class="form-inline mb-4">
+    <input type="text" id="newTask" class="form-control form-control-lg flex-grow-1" placeholder="Add new task..." required />
+    <button type="submit" class="btn btn-primary btn-lg">Add</button>
+  </form>
+
+  <div id="todoList"></div>
+
+  <script>
+    const todoForm = document.getElementById('todoForm');
+    const newTaskInput = document.getElementById('newTask');
+    const todoList = document.getElementById('todoList');
+
+    // Load tasks on page load
+    async function loadTodos() {
+      const res = await fetch('/api/todos');
+      const todos = await res.json();
+      todoList.innerHTML = '';
+      todos.forEach(renderTodo);
+    }
+
+    // Render a single todo item
+    function renderTodo(todo) {
+      const div = document.createElement('div');
+      div.className = 'todo-item' + (todo.done ? ' done' : '');
+      div.innerHTML = `
+        <input type="checkbox" ${todo.done ? 'checked' : ''} onchange="toggleStatus('${todo._id}', this.checked)">
+        <span class="task-text" contenteditable="true" onblur="updateText('${todo._id}', this.innerText)">${todo.text}</span>
+        <div class="todo-actions">
+          <i class="text-danger bi bi-trash" onclick="deleteTodo('${todo._id}')"></i>
+        </div>
+      `;
+      todoList.appendChild(div);
+    }
+
+    // Submit new task
+    todoForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = newTaskInput.value.trim();
+      if (!text) return;
+      const res = await fetch('/api/todos', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+      newTaskInput.value = '';
+      loadTodos();
+    });
+
+    // Toggle task done/undone
+    async function toggleStatus(id, done) {
+      await fetch(`/api/todos/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ done })
+      });
+      loadTodos();
+    }
+
+    // Update task text
+    async function updateText(id, text) {
+      await fetch(`/api/todos/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+    }
+
+    // Delete task
+    async function deleteTodo(id) {
+      await fetch(`/api/todos/${id}`, { method: 'DELETE' });
+      loadTodos();
+    }
+
+    loadTodos();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.js"></script>
+</body>
+</html>

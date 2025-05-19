@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration & Login</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; margin: 50px; }
+        form { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        input, button { width: 90%; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+
+    <h2>Student Registration</h2>
+    <form id="registerForm">
+        <input type="text" id="name" placeholder="Name" required><br>
+        <input type="email" id="email" placeholder="Email" required><br>
+        <p id="emailCheck"></p>
+        <input type="password" id="password" placeholder="Password" required><br>
+        <button type="submit">Register</button>
+    </form>
+    
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email" required><br>
+        <input type="password" id="loginPassword" placeholder="Password" required><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

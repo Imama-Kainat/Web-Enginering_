@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>3661</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      margin-top: 50px;
+    }
+    #square {
+      width: 100px;
+      height: 100px;
+      background-color: #ff5733;
+      position: relative;
+      margin: auto;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="square"></div>
+  <button id="move">Move</button>
+  <script>
+    $("#move").click(function(){
+      $("#square").animate({left: "+=200px"}, 1000);
+    });
+  </script>
+</body>
+</html>

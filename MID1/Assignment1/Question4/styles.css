@@ -1,0 +1,86 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F4F4F4;
+    color: #333;
+    text-align: center;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: #1E1E1E;
+    color: white;
+}
+
+/* Dark Mode Icon */
+.mode-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Container */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode - Container */
+.dark-mode .container {
+    background: #333;
+}
+
+/* Account Information */
+.account-info {
+    background: #0070BA;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+/* Input & Buttons */
+.transaction-form {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+input, button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    background: #0070BA;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #005F91;
+}
+
+/* Transaction History */
+#transaction-history {
+    list-style: none;
+    padding: 0;
+}
+
+.transaction {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+/* Colors for Transactions */
+.deposit { background: #4CAF50; color: white; }
+.withdrawal { background: #D32F2F; color: white; }

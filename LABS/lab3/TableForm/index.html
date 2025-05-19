@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table and Form Design</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Two Line Sections -->
+    <div class="line light-blue"></div>
+    <div class="line dark-blue"></div>
+
+    <!-- Table Section -->
+    <h2 class="centered">Student Information</h2>
+    <table class="centered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Course</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ayaan Khan</td>
+                <td>21</td>
+                <td>HTML</td>
+            </tr>
+            <tr>
+                <td>Fatima Ali</td>
+                <td>23</td>
+                <td>CSS</td>
+            </tr>
+            <tr>
+                <td>Usman Shah</td>
+                <td>22</td>
+                <td>JavaScript</td>
+            </tr>
+            <tr>
+                <td>Sara Ahmed</td>
+                <td>20</td>
+                <td>HTML</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Form Section -->
+    <h2 class="centered">Registration Form</h2>
+    <form action="#" method="POST" class="centered">
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        
+        <label for="course">Select Course:</label>
+        <select id="course" name="course" required>
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="javascript">JavaScript</option>
+        </select>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

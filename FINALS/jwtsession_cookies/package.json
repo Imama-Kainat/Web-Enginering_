@@ -1,0 +1,15 @@
+{
+    "name": "auth-app",
+    "version": "1.0.0",
+    "description": "A simple Node.js app using bcrypt and jsonwebtoken",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "bcrypt": "^5.1.0",
+      "jsonwebtoken": "^9.0.0"
+    },
+    "author": "",
+    "license": "ISC"
+  }

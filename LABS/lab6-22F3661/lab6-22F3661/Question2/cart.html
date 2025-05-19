@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Shopping Cart</h1>
+        <ul id="cartItems"></ul>
+
+        <button onclick="window.location.href = 'products.html';">Back to Products</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const cart = getCart();
+            const cartItemsList = document.getElementById('cartItems');
+
+            if (cart.length === 0) {
+                cartItemsList.innerHTML = '<li>Your cart is empty.</li>';
+            } else {
+                cart.forEach((product, index) => {
+                    const li = document.createElement('li');
+                    li.textContent = product;
+
+                    // Create a remove button for each item
+                    const removeButton = document.createElement('button');
+                    removeButton.textContent = 'Remove';
+                    removeButton.onclick = function() {
+                        removeFromCart(index);
+                    };
+
+                    li.appendChild(removeButton);
+                    cartItemsList.appendChild(li);
+                });
+            }
+        };
+
+        // Retrieve cart from cookies
+        function getCart() {
+            const cookies = document.cookie.split(';');
+            for (let cookie of cookies) {
+                const [name, value] = cookie.trim().split('=');
+                if (name === 'cart') {
+                    return JSON.parse(value);
+                }
+            }
+            return [];
+        }
+
+        // Remove an item from the cart and update the cookie
+        function removeFromCart(index) {
+            let cart = getCart();
+            cart.splice(index, 1); // Remove the item at the specified index
+            document.cookie = 'cart=' + JSON.stringify(cart) + '; path=/'; // Update the cookie
+            window.location.reload(); // Refresh the page to reflect changes
+        }
+    </script>
+</body>
+</html>

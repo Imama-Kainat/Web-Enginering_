@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imama Kainat - Portfolio</title>
+    <link rel="stylesheet" href="../style/styles.css" />
+    <style>
+      .main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 200px); /* Adjust for header and footer */
+        padding: 2rem;
+      }
+
+      .intro-text {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      #typing-text {
+        font-size: 2rem;
+        color: #ff5733;
+        min-height: 3rem;
+        display: inline-block;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .social-links a {
+        color: #900c3f;
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+      }
+
+      .social-links a:hover {
+        transform: translateY(-5px);
+      }
+
+      .scroll-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-30px);
+        }
+        60% {
+          transform: translateY(-15px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li id="name"><a href="./index.html">Ayesha Saeed</a></li>
+          <li id="else"><a href="./index.html">Home</a></li>
+          <li id="else"><a href="#offer">Offer</a></li>
+          <li id="else"><a href="./projects.html">Project</a></li>
+          <li id="else"><a href="./request.html">Leave a Request</a></li>
+          <li id="else"><a href="./faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle">🌙 Dark Mode</button>
+    </header>
+
+    <main class="main-content">
+      <div class="intro-text">
+        <h1>Imama Kainat</h1>
+        <h2><span id="typing-text"></span></h2>
+      </div>
+
+
+    <footer>
+      <p>&copy; 2025 Imama Kainat. All rights reserved.</p>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <!-- Scripts -->
+    <script src="../script/script.js"></script>
+  </body>
+</html>

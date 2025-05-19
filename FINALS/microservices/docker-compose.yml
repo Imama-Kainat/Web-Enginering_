@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  api-gateway:
+    build: ./api_gateways
+    ports:
+      - "3000:3000"
+    depends_on:
+      - user-service
+      - order-service
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "3001:3001"
+
+  order-service:
+    build: ./order-service
+    ports:
+      - "3002:3002"

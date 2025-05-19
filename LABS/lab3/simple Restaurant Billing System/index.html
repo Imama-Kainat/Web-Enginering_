@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- In this small project i use 1 file where put html,cssand js sections collectively 
+    why we put js at last?
+    as it takes time to load and parsing it that why when we put its link ,then place it always at last and when write just internal script also put it on last -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Billing System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #808080;
+            color:white;
+        }
+        h1{
+            text-align: center;
+        }
+        h4{
+            text-align: center;
+            background-color: #4CAF50;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            padding: 10px;
+            width: 100%;
+            margin-top: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            margin-top: 15px;
+            background-color: #191d1a;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #results {
+            display: none;
+            margin-top: 20px;
+            
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Restaurant Billing System</h1>
+
+    <!-- Input Fields -->
+    <label for="billAmount">Total Bill Amount ($):</label>
+    <input type="number" id="billAmount" placeholder="Enter total bill amount" />
+
+    <label for="tipPercentage">Tip Percentage (%):</label>
+    <input type="number" id="tipPercentage" placeholder="Enter tip percentage" />
+
+    <label for="numPeople">Number of People:</label>
+    <input type="number" id="numPeople" placeholder="Enter number of people" />
+
+    <!-- Calculate Button -->
+    <button onclick="calculateBill()">Calculate Bill</button>
+
+    <!-- Results Section (hidden by default) -->
+    <div id="results">
+        <h4>Summary </h4>
+        <div class="result" id="taxAmount"></div>
+        <div class="result" id="tipAmount"></div>
+        <div class="result" id="totalBill"></div>
+        <div class="result" id="amountPerPerson"></div>
+    </div>
+
+    <script>
+        function calculateBill() {
+            // Get input values
+            const billAmount = parseFloat(document.getElementById('billAmount').value);
+            const tipPercentage = parseFloat(document.getElementById('tipPercentage').value);
+            const numPeople = parseInt(document.getElementById('numPeople').value);
+
+           
+
+            // Assume a fixed tax rate (e.g., 8%)
+            const taxRate = 0.08;
+
+            // Calculate the tax amount
+            const taxAmount = billAmount * taxRate;
+            
+            // Calculate the tip amount
+            const tipAmount = billAmount * (tipPercentage / 100);
+            
+            // Calculate the total bill (including tax and tip)
+            const totalBill = billAmount + taxAmount + tipAmount;
+
+            // Calculate the amount each person needs to pay
+            const amountPerPerson = totalBill / numPeople;
+
+            // Display results
+            document.getElementById('taxAmount').innerText = `Tax Amount: $${taxAmount.toFixed(2)}`;
+            document.getElementById('tipAmount').innerText = `Tip Amount: $${tipAmount.toFixed(2)}`;
+            document.getElementById('totalBill').innerText = `Total Bill (including tax and tip): $${totalBill.toFixed(2)}`;
+            document.getElementById('amountPerPerson').innerText = `Amount per Person: $${amountPerPerson.toFixed(2)}`;
+
+// document.getElementById('amountPerPerson'): Accesses the HTML element with the id="amountPerPerson".
+// .innerText: Updates the text inside the selected HTML element.
+// Template Literal: Embeds the formatted value of amountPerPerson inside the string.
+// toFixed(2): Ensures the number is displayed with exactly 2 decimal places.
+
+            // Show the results section (hidden by default)
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Course Management</title>
+    <link rel="stylesheet" href="registration.css">
+</head>
+<body>
+    <div class="container">
+        <div class="students">
+            <h2>Students</h2>
+            <select id="studentSelect">
+                <option value="">Select a student</option>
+                <option value="1">Nehal</option>
+                <option value="2">Ibrahim Khan</option>
+                <option value="3">Emaan Fatima</option>
+            </select>
+            <h3>Registered Courses</h3>
+            <ul id="registeredCourses"></ul>
+            <button id="deleteCourseBtn">Delete Selected Course</button>
+        </div>
+        <div class="courses">
+            <h2>Courses</h2>
+            <ul id="courseList">
+                <li><input type="checkbox" value="PF"> PF</li>
+                <li><input type="checkbox" value="OOP"> OOP</li>
+                <li><input type="checkbox" value="DS"> DS</li>
+                <li><input type="checkbox" value="CN"> CN</li>
+            </ul>
+            <button id="addCourseBtn">Add Selected Courses</button>
+        </div>
+    </div>
+    <script src="registration.js"></script>
+</body>
+</html>

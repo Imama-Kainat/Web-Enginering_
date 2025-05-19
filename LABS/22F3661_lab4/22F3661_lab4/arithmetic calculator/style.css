@@ -1,0 +1,134 @@
+/* Styling for the entire body */
+body {
+    /* Set the font to Arial or a sans-serif fallback */
+    font-family: Arial, sans-serif;
+
+    /* Remove default margin and padding */
+    margin: 0;
+    padding: 0;
+
+    /* Set a white background for the page */
+    background-color: white;
+
+    /* Use Flexbox for centering content both horizontally and vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Ensure the body takes up the full height of the viewport */
+    height: 100vh;
+}
+
+/* Styling for the calculator container */
+.calculator {
+    /* Center-align text and content inside the calculator */
+    text-align: center;
+
+    /* Set a gradient background from light pink to a lighter shade of pink */
+    background: pink;
+
+    /* Add padding inside the calculator for spacing */
+    padding: 2rem;
+
+    /* Round the corners for a softer look */
+    border-radius: 12px;
+
+    /* Add a subtle shadow for a 3D effect */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+
+    /* Fix the width of the calculator */
+    width: 350px;
+}
+
+/* Styling for the heading inside the calculator */
+h1 {
+    /* Set the font size for the heading */
+    font-size: 1.5rem;
+
+    /* Add space below the heading */
+    margin-bottom: 1rem;
+}
+
+/* Styling for input fields */
+input {
+    /* Set the width of the input fields to 80% of the parent container */
+    width: 80%;
+
+    /* Add padding inside the input fields for better usability */
+    padding: 0.6rem;
+
+    /* Add margin to create space between input fields */
+    margin: 0.5rem 0;
+
+    /* Add a light gray border around input fields */
+    border: 1px solid #ccc;
+
+    /* Round the corners of the input fields */
+    border-radius: 5px;
+
+    /* Set a legible font size for the input text */
+    font-size: 1rem;
+}
+
+/* Styling for the container holding the buttons */
+.buttons {
+    /* Use Flexbox for arranging buttons */
+    display: flex;
+
+    /* Space the buttons equally */
+    justify-content: space-between;
+
+    /* Add vertical spacing above and below the button group */
+    margin: 1rem 0;
+}
+
+/* Styling for individual buttons */
+button {
+    /* Add padding inside the buttons for better size and usability */
+    padding: 0.6rem 1rem;
+
+    /* Set the font size of the button text */
+    font-size: 0.9rem;
+
+    /* Remove the default border */
+    border: none;
+
+    /* Round the corners of the buttons */
+    border-radius: 5px;
+
+    /* Change the cursor to a pointer when hovering over buttons */
+    cursor: pointer;
+
+    /* Set the default background color to a vibrant pink */
+    background: rgb(183, 26, 125);
+
+    /* Set the text color to white for better contrast */
+    color: white;
+
+    /* Ensure all buttons take up equal width */
+    flex: 1;
+
+    /* Add horizontal spacing between buttons */
+    margin: 0 0.2rem;
+}
+
+/* Styling for the hover effect on buttons */
+button:hover {
+    /* Change the background color to a lighter pink when hovered */
+    background: rgb(225, 168, 208);
+}
+
+/* Styling for the result display */
+#result {
+    /* Add spacing above the result text */
+    margin-top: 1rem;
+
+    /* Increase the font size for emphasis */
+    font-size: 1.2rem;
+
+    /* Make the text bold for better visibility */
+    font-weight: bold;
+
+    /* Set the text color to dark gray for readability */
+    color: #333;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration</title>
+
+  <!-- ✅ Bootstrap CSS for styling -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+  <h2>Student Registration</h2>
+
+  <!-- ✅ Alert box for success or error messages -->
+  <div id="alert" class="my-3"></div>
+
+  <!-- ✅ Registration Form with all required fields -->
+  <form id="registrationForm">
+    <div class="mb-3">
+      <label class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Department</label>
+      <input type="text" class="form-control" id="department" required>
+    </div>
+
+    <!-- ✅ Submit button -->
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+
+  <!-- ✅ JavaScript for AJAX requests and form logic -->
+  <script>
+    const form = document.getElementById('registrationForm');
+    const alertBox = document.getElementById('alert');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Prevent default form submission
+      alertBox.innerHTML = ''; // Clear any previous alerts
+
+      // ✅ Collect form values
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const department = document.getElementById('department').value;
+
+      try {
+        // ✅ Check email availability via AJAX GET
+        const emailCheck = await fetch(`http://localhost:3000/api/students/check-email/${email}`);
+        const { exists } = await emailCheck.json();
+
+        if (exists) {
+          // ✅ Show error alert if email is already used
+          alertBox.innerHTML = '<div class="alert alert-danger">Email already in use.</div>';
+        } else {
+          // ✅ Submit form via AJAX POST if email is available
+          const register = await fetch('http://localhost:3000/api/students/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, password, department }),
+          });
+
+          const result = await register.json();
+
+          if (register.ok) {
+            // ✅ Show success alert
+            alertBox.innerHTML = `<div class="alert alert-success">${result.message}</div>`;
+            form.reset(); // Clear the form
+          } else {
+            // ✅ Show server-side error alert
+            alertBox.innerHTML = `<div class="alert alert-danger">${result.message}</div>`;
+          }
+        }
+      } catch (err) {
+        // ✅ Catch network or server errors
+        alertBox.innerHTML = '<div class="alert alert-danger">Something went wrong!</div>';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Form container */
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left; /* Align the form elements to the left */
+}
+
+/* Fieldset styles */
+fieldset {
+    border: 2px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fafafa;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+}
+
+label {
+    font-size: 1.1em;
+    margin-left: 10px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Submit button */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    width: 100%; /* Makes button full width */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Quiz Result Page */
+#answerDisplay {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}

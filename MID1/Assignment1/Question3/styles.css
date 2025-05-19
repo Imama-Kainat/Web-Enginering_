@@ -1,0 +1,84 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F4F4F4;
+    color: #333;
+    text-align: center;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Dark Mode */
+.dark-mode {
+    background: #1E1E1E;
+    color: white;
+}
+
+/* Dark Mode Icon */
+.mode-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Container */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode - Container */
+.dark-mode .container {
+    background: #333;
+}
+
+/* Input Form */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input, button {
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    background: #4285F4;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #005F91;
+}
+
+/* Output Styling */
+.results {
+    background: #F4F4F4;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Dark Mode - Results */
+.dark-mode .results {
+    background: #444;
+}
+
+/* Transformed Text */
+#original-output {
+    color: #1877F2;
+}
+
+#transformed-output {
+    color: #EA4335;
+}

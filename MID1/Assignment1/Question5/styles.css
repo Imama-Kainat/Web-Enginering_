@@ -1,0 +1,91 @@
+/* Global Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF; /* Light Mode */
+    color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Main Container */
+.container {
+    width: 40%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FF4747; /* AliExpress Red */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: background 0.3s;
+}
+
+/* Input Field */
+input {
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+    border: 2px solid #000000; /* Black Border */
+    border-radius: 5px;
+}
+
+/* Product List */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #000000; /* Black */
+    color: #FFFFFF; /* White Text */
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+li:hover {
+    background-color: #333333; /* Darker Black */
+}
+
+/* Final Price Display */
+#finalPrice {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #000000;
+}
+
+/* Theme Toggle Button */
+button {
+    background-color: #FF4747; /* AliExpress Red */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #D93636; /* Darker Red */
+}
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+.dark-mode .container {
+    background-color: #FF4747; /* AliExpress Red */
+}
+
+.dark-mode button {
+    background-color: #FFFFFF; /* White */
+    color: #000000; /* Black */
+}

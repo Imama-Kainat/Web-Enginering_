@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Account System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Dark Mode Toggle -->
+    <div class="mode-toggle" onclick="toggleDarkMode()">
+        <span id="toggle-icon">🌙</span>
+    </div>
+
+    <div class="container">
+        <h1>🏦 Bank Account System</h1>
+
+        <!-- Account Information -->
+        <div class="account-info">
+            <p><strong>Account Number:</strong> <span id="account-number"></span></p>
+            <p><strong>Balance:</strong> PKR <span id="account-balance">0</span></p>
+        </div>
+
+        <!-- Transaction Form -->
+        <div class="transaction-form">
+            <input type="number" id="amount" placeholder="Enter Amount (PKR)">
+            <button id="deposit-btn">Deposit</button>
+            <button id="withdraw-btn">Withdraw</button>
+        </div>
+
+        <!-- Transaction History -->
+        <h2>📜 Transaction History</h2>
+        <ul id="transaction-history"></ul>
+
+        <!-- Download Transactions -->
+        <button id="download-btn">Download History</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

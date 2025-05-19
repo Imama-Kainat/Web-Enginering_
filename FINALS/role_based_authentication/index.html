@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Role-Based Authentication</title>
+  <link rel="stylesheet" href="public/style.css" />
+</head>
+<body>
+  <div class="custom-container">
+    <div class="form-wrapper">
+      <div class="card-header">
+        <h2>Login</h2>
+      </div>
+      <div class="card-body">
+        <div id="loginForm">
+          <form id="loginFormElement">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" required />
+
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" required />
+
+            <label for="role" class="form-label">Role</label>
+            <select class="form-control" id="role" required>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+              <option value="editor">Editor</option>
+            </select>
+
+            <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+          </form>
+          <div id="message" class="alert" style="display: none;"></div>
+        </div>
+
+        <div id="protectedContent" class="protected-content">
+          <h3>Welcome, <span id="userName" class="text-primary"></span>!</h3>
+          <p class="text-muted">Your role: <span id="userRole" class="badge bg-info"></span></p>
+          <button class="btn btn-danger" onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let token = localStorage.getItem("token");
+
+    if (token) {
+      showProtectedContent();
+    }
+
+    async function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      const role = document.getElementById("role").value;
+      const messageDiv = document.getElementById("message");
+
+      try {
+        const response = await fetch("http://localhost:3000/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password, role }),
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message || "Login failed");
+        }
+
+        const data = await response.json();
+        token = data.accessToken;
+        localStorage.setItem("token", token);
+        showProtectedContent();
+        showMessage("Login successful!", "success");
+      } catch (error) {
+        console.error("Error:", error);
+        showMessage(error.message || "An error occurred", "danger");
+      }
+    }
+
+    function showMessage(message, type) {
+      const messageDiv = document.getElementById("message");
+      messageDiv.textContent = message;
+      messageDiv.className = `alert alert-${type}`;
+      messageDiv.style.display = "block";
+    }
+
+    function showProtectedContent() {
+      const loginForm = document.getElementById("loginForm");
+      const protectedContent = document.getElementById("protectedContent");
+      const messageDiv = document.getElementById("message");
+
+      loginForm.style.display = "none";
+      protectedContent.style.display = "block";
+      messageDiv.style.display = "none";
+
+      const payload = JSON.parse(atob(token.split(".")[1]));
+      document.getElementById("userName").textContent = payload.username;
+      document.getElementById("userRole").textContent = payload.role;
+    }
+
+    function logout() {
+      localStorage.removeItem("token");
+      token = null;
+      document.getElementById("loginForm").style.display = "block";
+      document.getElementById("protectedContent").style.display = "none";
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+      document.getElementById("message").style.display = "none";
+    }
+  </script>
+</body>
+</html>

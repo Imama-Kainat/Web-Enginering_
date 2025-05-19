@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>3661</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+    #slider-container {
+      width: 320px;
+    }
+    .slider-image {
+      width: 100%;
+      display: none;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="slider-container">
+    <img class="slider-image" src="1.jpg" alt="Image 1">
+    <img class="slider-image" src="2.jpg" alt="Image 2">
+    <img class="slider-image" src="3.jpg" alt="Image 3">
+  </div>
+  <div>
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+  </div>
+  <script>
+    var current = 0;
+    var images = $(".slider-image");
+    $(images[current]).show();
+    $("#next").click(function(){
+      if(current < images.length - 1){
+        $(images[current]).fadeOut(function(){
+          current++;
+          $(images[current]).fadeIn();
+        });
+      }
+    });
+    $("#prev").click(function(){
+      if(current > 0){
+        $(images[current]).fadeOut(function(){
+          current--;
+          $(images[current]).fadeIn();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

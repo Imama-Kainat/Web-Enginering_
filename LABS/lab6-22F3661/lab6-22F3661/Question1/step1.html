@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 1 - Registration</title>
+    <style> 
+        body{
+               background-color: pink;
+           } 
+           </style>
+</head>
+<body>
+    <fieldset>
+    <h1>Step 1: Enter your details</h1>
+    <form id="step1Form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required><br><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" required><br><br>
+    
+            <button type="submit">Next</button>
+        </fieldset>
+        
+    </form>
+
+    <script>
+        document.getElementById('step1Form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Retrieve user data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // Save data to localStorage
+            localStorage.setItem('name', name);
+            localStorage.setItem('email', email);
+
+            // Redirect to step 2
+            window.location.href = 'step2.html';
+        });
+    </script>
+</body>
+</html>

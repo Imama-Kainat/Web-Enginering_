@@ -1,0 +1,64 @@
+/* Basic Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Header */
+header {
+    background: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Containers */
+.container {
+    margin: 20px auto;
+    width: 80%;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    background: #f9f9f9;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background: #28a745;
+    color: white;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* Dark Theme */
+.dark-theme {
+    background: #222;
+    color: white;
+}
+
+.dark-theme .container {
+    background: #444;
+}
+
+/* Dynamic Buttons */
+.dynamic-btn {
+    padding: 10px;
+    margin: 10px;
+    background: teal;
+    color: white;
+    border: none;
+    cursor: pointer;
+}

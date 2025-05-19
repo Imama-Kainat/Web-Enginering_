@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Example</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 3 columns */
+            gap: 10px; /* Spacing between items */
+            max-width: 400px; /* Limit width */
+            margin: auto;
+        }
+        .grid-item {
+            background: lightblue;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-container">
+        <div class="grid-item">Apple</div>
+        <div class="grid-item">Banana</div>
+        <div class="grid-item">Cherry</div>
+        <div class="grid-item">Date</div>
+        <div class="grid-item">Elderberry</div>
+        <div class="grid-item">Fig</div>
+        <div class="grid-item">Grapes</div>
+        <div class="grid-item">Honeydew</div>
+        <div class="grid-item">Indian Fig</div>
+    </div>
+
+</body>
+</html>

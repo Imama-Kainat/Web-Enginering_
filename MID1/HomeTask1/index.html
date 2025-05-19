@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Web Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1 class="title">Mamai Nataki</h1>
+        <p>Welcome to my page, it's my 6th semester first day! Here I will share some of my hobbies and interests.</p>
+    </header>
+
+    <!-- Hobbies Section -->
+    <section class="hobbies">
+        <h2>My Hobbies</h2>
+        <ul>   
+            <li>Reading </li>
+            <li>Coding</li>
+            <li>Eating</li>
+        </ul>
+    </section>
+
+    <!-- Image Section -->
+    <section class="image-section">
+        <h2>Enjoying My Hobby</h2>
+        <img src="imf.jpg" alt="A picture of me enjoying my hobby">
+    </section>
+
+    <!-- Favorite Website Section -->
+    <section class="favorite-website">
+        <p>Check out my favorite website: <a href="https://books.google.com/" target="_blank">Fav Books</a></p>
+    </section>
+    
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <h2>Contact Me</h2>
+        <form action="mailto:f223661@cfd.nu.edu.pk" method="POST" enctype="multipart/form-data">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" name="fname" placeholder="Your First Name" required><br><br>
+
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" name="lname" placeholder="Your Last Name" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email Address" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea><br><br>
+
+            <!-- Checkboxes Section -->
+            <label for="contact-method">Preferred Contact Method:</label><br>
+            <input type="checkbox" id="email-contact" name="contact-method" value="Email">
+            <label for="email-contact">Email</label><br>
+            <input type="checkbox" id="phone-contact" name="contact-method" value="Phone">
+            <label for="phone-contact">Phone</label><br><br>
+
+            <label for="interests">Select your interests:</label><br>
+            <input type="checkbox" id="coding" name="interests" value="Coding">
+            <label for="coding">Coding</label><br>
+            <input type="checkbox" id="reading" name="interests" value="Reading">
+            <label for="reading">Reading</label><br>
+            <input type="checkbox" id="traveling" name="interests" value="Traveling">
+            <label for="traveling">Traveling</label><br><br>
+
+            <label for="subscribe">Subscribe to Newsletter:</label>
+            <input type="checkbox" id="subscribe" name="subscribe" value="Yes"><br><br>
+
+            <input type="submit" value="Send Message">
+        </form>
+    </section>
+
+</body>
+</html>

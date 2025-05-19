@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Project Management</h1>
+        
+        <div class="form-group">
+            <input type="text" id="title" placeholder="Project Title">
+            <input type="text" id="description" placeholder="Project Description">
+            <select id="status">
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+            <button id="addProject">Add Project</button>
+        </div>
+
+        <div class="filter-group">
+            <input type="text" id="search" placeholder="Search by Title">
+            <select id="filter">
+                <option value="All">All</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
+
+        <ul id="projectList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Application Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-4">
+  <h2 class="mb-4">Available Jobs</h2>
+  <div id="jobCards" class="row gy-3"></div>
+
+  <!-- Apply Modal -->
+  <div class="modal fade" id="applyModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content" id="applyForm">
+        <div class="modal-header">
+          <h5 class="modal-title">Apply for Job</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="jobId">
+          <div class="mb-3">
+            <label>Name</label>
+            <input type="text" id="name" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Email</label>
+            <input type="email" id="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Resume Link</label>
+            <input type="url" id="resume" class="form-control" required>
+          </div>
+          <div id="applyAlert"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" type="submit">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <hr>
+  <button class="btn btn-secondary my-3" onclick="toggleAdmin()">👩‍💼 Toggle Admin View</button>
+
+  <div id="adminSection" style="display:none">
+    <h3>Applicants</h3>
+    <div id="applicantsTable"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const jobCards = document.getElementById('jobCards');
+    const applyForm = document.getElementById('applyForm');
+    const applyAlert = document.getElementById('applyAlert');
+    const jobIdField = document.getElementById('jobId');
+    const adminSection = document.getElementById('adminSection');
+    const applicantsTable = document.getElementById('applicantsTable');
+    let currentJobs = [];
+
+    // Load jobs
+    async function loadJobs() {
+      const res = await fetch('/api/jobs');
+      currentJobs = await res.json();
+      jobCards.innerHTML = '';
+      currentJobs.forEach(job => {
+        jobCards.innerHTML += `
+          <div class="col-md-4">
+            <div class="card shadow">
+              <div class="card-body">
+                <h5 class="card-title">${job.title}</h5>
+                <p class="card-text">${job.description}</p>
+                <button class="btn btn-success" onclick="openApplyModal('${job._id}')">Apply Now</button>
+                <button class="btn btn-outline-primary mt-2" onclick="loadApplicants('${job._id}')">View Applicants</button>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Open modal
+    function openApplyModal(jobId) {
+      jobIdField.value = jobId;
+      applyForm.reset();
+      applyAlert.innerHTML = '';
+      const modal = new bootstrap.Modal(document.getElementById('applyModal'));
+      modal.show();
+    }
+
+    // Submit application
+    applyForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const jobId = jobIdField.value;
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const resumeLink = document.getElementById('resume').value;
+
+      const res = await fetch('/api/apply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ jobId, name, email, resumeLink })
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        applyAlert.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
+        applyForm.reset();
+      } else {
+        applyAlert.innerHTML = `<div class="alert alert-danger">${data.message}</div>`;
+      }
+    });
+
+    // Toggle admin section
+    function toggleAdmin() {
+      adminSection.style.display = adminSection.style.display === 'none' ? 'block' : 'none';
+    }
+
+    // Load applicants
+    async function loadApplicants(jobId) {
+      const res = await fetch(`/api/applicants/${jobId}`);
+      const applicants = await res.json();
+
+      applicantsTable.innerHTML = `
+        <h5>Applicants for "${currentJobs.find(j => j._id === jobId)?.title}"</h5>
+        <table class="table table-bordered">
+          <thead><tr><th>Name</th><th>Email</th><th>Resume</th></tr></thead>
+          <tbody>
+            ${applicants.map(app => `
+              <tr>
+                <td>${app.name}</td>
+                <td>${app.email}</td>
+                <td><a href="${app.resumeLink}" target="_blank">View</a></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    loadJobs();
+  </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - Ayesha Saeed</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style/styles.css" />
+    <link rel="stylesheet" href="../style/project.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li id="name"><a href="./index.html">Ayesha Saeed</a></li>
+          <li id="else"><a href="./index.html">Home</a></li>
+          <li id="else"><a href="#offer">Offer</a></li>
+          <li id="else"><a href="./projects.html">Project</a></li>
+          <li id="else"><a href="./request.html">Leave a Request</a></li>
+          <li id="else"><a href="./faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="projects-container">
+      <!-- Project 1 -->
+      <div class="project-card" data-project="1">
+        <div class="project-front">
+          <h3>E-commerce Platform</h3>
+          <p>
+            A full-featured online shopping platform with real-time inventory
+            management
+          </p>
+          <div class="tech-stack">
+            <span class="tech-badge"><i class="fab fa-react"></i> React</span>
+            <span class="tech-badge"
+              ><i class="fab fa-node-js"></i> Node.js</span
+            >
+            <span class="tech-badge"
+              ><i class="fas fa-database"></i> MongoDB</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card" data-project="2">
+        <div class="project-front">
+          <h3>Task Management App</h3>
+          <p>Collaborative task management system with real-time updates</p>
+          <div class="tech-stack">
+            <span class="tech-badge"><i class="fab fa-vuejs"></i> Vue.js</span>
+            <span class="tech-badge"><i class="fas fa-fire"></i> Firebase</span>
+            <span class="tech-badge"><i class="fab fa-css3"></i> Tailwind</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card" data-project="3">
+        <div class="project-front">
+          <h3>Portfolio Website</h3>
+          <p>Modern portfolio website with dark mode and custom animations</p>
+          <div class="tech-stack">
+            <span class="tech-badge"><i class="fab fa-html5"></i> HTML5</span>
+            <span class="tech-badge"><i class="fab fa-css3-alt"></i> CSS3</span>
+            <span class="tech-badge"><i class="fab fa-js"></i> JavaScript</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- Popup templates -->
+    <div class="project-popup" id="popup-1">
+      <button class="close-popup">&times;</button>
+      <h2>E-commerce Platform</h2>
+      <p>
+        A comprehensive e-commerce solution featuring user authentication,
+        shopping cart functionality, payment integration, and real-time
+        inventory management.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-badge">React</span>
+        <span class="tech-badge">Node.js</span>
+        <span class="tech-badge">MongoDB</span>
+        <span class="tech-badge">Stripe</span>
+        <span class="tech-badge">Redux</span>
+      </div>
+      <div class="project-links">
+        <a href="#" target="_blank">Live Demo</a>
+        <a href="#" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-popup" id="popup-2">
+      <button class="close-popup">&times;</button>
+      <h2>Task Management App</h2>
+      <p>
+        A collaborative task management application with features like real-time
+        updates, team collaboration, task assignment, and progress tracking.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-badge">Vue.js</span>
+        <span class="tech-badge">Firebase</span>
+        <span class="tech-badge">Tailwind</span>
+        <span class="tech-badge">Vuex</span>
+      </div>
+      <div class="project-links">
+        <a href="#" target="_blank">Live Demo</a>
+        <a href="#" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project-popup" id="popup-3">
+      <button class="close-popup">&times;</button>
+      <h2>Portfolio Website</h2>
+      <p>
+        A modern, responsive portfolio website featuring dark mode toggle,
+        custom cursor animations, and interactive project showcases.
+      </p>
+      <div class="tech-stack">
+        <span class="tech-badge">HTML5</span>
+        <span class="tech-badge">CSS3</span>
+        <span class="tech-badge">JavaScript</span>
+        <span class="tech-badge">GSAP</span>
+      </div>
+      <div class="project-links">
+        <a href="#" target="_blank">Live Demo</a>
+        <a href="#" target="_blank">GitHub</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2025 Ayesha Saeed. All rights reserved.</p>
+    </footer>
+
+    <script src="../script/project.js"></script>
+  </body>
+</html>

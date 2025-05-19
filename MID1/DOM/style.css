@@ -1,0 +1,17 @@
+h1{
+    color:blue;
+    text-decoration: dotted;
+    background-color: rgb(233, 227, 239);
+}
+#heading {
+    background-color: brown;
+}
+button{
+    background-color: #4CAF50;
+}
+body{
+    background-color:pink ;
+}
+.hedclass{
+    color:rgb(1, 241, 1);
+}

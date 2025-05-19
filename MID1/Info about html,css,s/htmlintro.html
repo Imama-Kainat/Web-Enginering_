@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to HTML</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        code {
+            background: #eee;
+            padding: 3px 6px;
+            border-radius: 5px;
+        }
+        pre {
+            background: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Introduction to HTML</h1>
+    <p>HTML (Hypertext Markup Language) is the standard language for creating web pages. It describes the structure of web pages using markup. HTML uses a system of tags to create elements on a webpage.</p>
+    
+    <h2>Structure of an HTML Document</h2>
+    <pre>
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="en"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Title of the Document&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;This is a Heading&lt;/h1&gt;
+            &lt;p&gt;This is a paragraph.&lt;/p&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </pre>
+    
+    <h2>Basic HTML Elements</h2>
+    <h3>Text Formatting Tags</h3>
+    <ul>
+        <li><code>&lt;h1&gt; to &lt;h6&gt;</code>: Headings</li>
+        <li><code>&lt;p&gt;</code>: Paragraph</li>
+        <li><code>&lt;strong&gt;</code>: Bold text</li>
+        <li><code>&lt;em&gt;</code>: Italic text</li>
+        <li><code>&lt;br&gt;</code>: Line break</li>
+        <li><code>&lt;hr&gt;</code>: Horizontal rule</li>
+    </ul>
+
+    <h3>Links</h3>
+    <pre>
+        &lt;a href="https://www.example.com"&gt;Click here&lt;/a&gt;
+    </pre>
+
+    <h3>Images</h3>
+    <pre>
+        &lt;img src="image.jpg" alt="Image Description"&gt;
+    </pre>
+
+    <h3>Lists</h3>
+    <pre>
+        &lt;ul&gt;
+            &lt;li&gt;Item 1&lt;/li&gt;
+            &lt;li&gt;Item 2&lt;/li&gt;
+        &lt;/ul&gt;
+    </pre>
+
+    <h3>Tables</h3>
+    <pre>
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Age&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;John&lt;/td&gt;
+                &lt;td&gt;25&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    </pre>
+
+    <h2>HTML Forms and Input Types</h2>
+    <h3>Basic Form Structure</h3>
+    <pre>
+        &lt;form action="submit_form.php" method="POST"&gt;
+            &lt;label for="name"&gt;Name:&lt;/label&gt;
+            &lt;input type="text" id="name" name="name"&gt;
+            &lt;label for="email"&gt;Email:&lt;/label&gt;
+            &lt;input type="email" id="email" name="email"&gt;
+            &lt;input type="submit" value="Submit"&gt;
+        &lt;/form&gt;
+    </pre>
+
+    <h2>Common Input Types</h2>
+    <ul>
+        <li><code>&lt;input type="text"&gt;</code>: Single-line text input</li>
+        <li><code>&lt;input type="password"&gt;</code>: Password field</li>
+        <li><code>&lt;input type="email"&gt;</code>: Email input</li>
+        <li><code>&lt;input type="checkbox"&gt;</code>: Checkbox</li>
+        <li><code>&lt;input type="radio"&gt;</code>: Radio button</li>
+        <li><code>&lt;button&gt;</code>: Button</li>
+        <li><code>&lt;input type="submit"&gt;</code>: Submit button</li>
+        <li><code>&lt;textarea&gt;</code>: Multi-line text input</li>
+        <li><code>&lt;input type="date"&gt;</code>: Date input</li>
+        <li><code>&lt;input type="file"&gt;</code>: File upload</li>
+    </ul>
+
+    <h2>HTML Semantic Elements</h2>
+    <ul>
+        <li><code>&lt;header&gt;</code>: Page header</li>
+        <li><code>&lt;footer&gt;</code>: Page footer</li>
+        <li><code>&lt;article&gt;</code>: Independent content</li>
+        <li><code>&lt;section&gt;</code>: Section of content</li>
+        <li><code>&lt;nav&gt;</code>: Navigation links</li>
+        <li><code>&lt;aside&gt;</code>: Sidebar content</li>
+    </ul>
+
+    <h2>HTML Comments</h2>
+    <pre>
+        &lt;!-- This is a comment --&gt;
+    </pre>
+</body>
+</html>

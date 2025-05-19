@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step 2 - Enter Phone Number</title>
+    <style> 
+     body{
+            background-color: yellow;
+        } 
+        </style>
+</head>
+<body>
+    <fieldset>
+
+    <h1>Step 2: Enter your phone number</h1>
+
+    <p><strong>Name:</strong> <span id="nameDisplay"></span></p>
+    <p><strong>Email:</strong> <span id="emailDisplay"></span></p>
+
+    <form id="step2Form">
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" required><br><br>
+
+        <button type="submit">Submit</button>
+        <fieldset>
+        
+    </form>
+
+    <div id="confirmationMessage" style="display:none; color: green;">Registration complete! Thank you.</div>
+
+    <script>
+        // Retrieve data from localStorage
+        const name = localStorage.getItem('name');
+        const email = localStorage.getItem('email');
+
+        // Display the data
+        document.getElementById('nameDisplay').textContent = name;
+        document.getElementById('emailDisplay').textContent = email;
+
+        document.getElementById('step2Form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Retrieve phone number
+            const phone = document.getElementById('phone').value;
+
+            // Save phone number to localStorage
+            localStorage.setItem('phone', phone);
+
+            // Display confirmation message
+            document.getElementById('confirmationMessage').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

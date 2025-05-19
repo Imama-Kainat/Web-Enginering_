@@ -1,0 +1,23 @@
+body {
+    background-color: white;
+    height: 100vh;          /* Full viewport height */
+    margin: 0;              /* Remove default body margins */
+    display: flex;          /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+}
+
+button {
+    border: 0.1rem solid rgb(228, 33, 65);
+    background: rgb(228, 33, 65);
+    font-size: 1rem;
+    color: white;           /* Text color */
+    padding: 0.6rem 1.5rem; /* Padding for the button */
+    border-radius: 30px;    /* Rounded edges */
+    cursor: pointer;        /* Pointer on hover */
+    transition: filter 0.3s ease; /* Smooth hover effect */
+}
+
+button:hover {
+    filter: grayscale(1);   /* Grayscale effect on hover */
+}

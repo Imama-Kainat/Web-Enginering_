@@ -1,0 +1,105 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F8D568;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+/* Sun & Moon Toggle Button */
+.mode-toggle {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Product Grid */
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+/* Flip Card */
+.card {
+    width: 300px;
+    height: 400px;
+    perspective: 1500px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+/* Light Mode - Keep Both Sides White */
+.card-front, .card-back {
+    background: #fff;
+    color: #222;
+}
+
+/* Back Side Rotation */
+.card-back {
+    transform: rotateY(180deg);
+}
+
+/* Buy Now Button */
+.buy-btn {
+    background: #ff6600;
+    color: white;
+    border: none;
+    padding: 12px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.buy-btn:hover {
+    background: #e65500;
+}
+
+/* Dark Mode - Keep Both Sides Dark Brown */
+.dark-mode {
+    background: #222;
+    color: white;
+}
+
+.dark-mode .card-front, .dark-mode .card-back {
+    background: #444; /* Dark Brown */
+    color: white;
+}
+
+/* Change Sun & Moon Icon */
+.dark-mode #toggle-icon {
+    content: "🌞";
+}

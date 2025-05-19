@@ -1,0 +1,7 @@
+npm init -y
+
+npm install express mongoose body-parser cors
+
+mongod --dbpath E:\datadb
+
+node server.js

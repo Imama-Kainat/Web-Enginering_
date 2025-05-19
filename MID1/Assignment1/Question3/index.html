@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Transformer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Dark Mode Toggle -->
+    <div class="mode-toggle" onclick="toggleDarkMode()">
+        <span id="toggle-icon">🌙</span>
+    </div>
+
+    <div class="container">
+        <h1>🔄 String Transformer</h1>
+
+        <!-- User Input Form -->
+        <div class="form">
+            <input type="text" id="user-string" placeholder="Enter your string..." required>
+            <input type="text" id="roll-number" placeholder="Enter roll number..." required>
+            <input type="number" id="manual-interval" placeholder="Manual skip interval (optional)">
+            <button id="transform-btn">Transform</button>
+        </div>
+
+        <!-- Output Display -->
+        <h2>Results:</h2>
+        <div class="results">
+            <p><strong>Original String:</strong> <span id="original-output"></span></p>
+            <p><strong>Transformed String:</strong> <span id="transformed-output"></span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

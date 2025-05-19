@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>3661</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 0.5s ease-in-out;
+      margin-top: 100px;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <button id="nature">Nature</button>
+  <button id="city">City</button>
+  <button id="ocean">Ocean</button>
+  <script>
+    $("#nature").click(function(){
+      $("body").css("background-image", "url('nature.jpg')");
+    });
+    $("#city").click(function(){
+      $("body").css("background-image", "url('city.jpg')");
+    });
+    $("#ocean").click(function(){
+      $("body").css("background-image", "url('ocean.jpg')");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+// styles.scss
+@use "sass:color";
+
+$primary: #007bff;
+$danger: #dc3545;
+$info: #17a2b8;
+$bg-color: #f8f9fa;
+$card-radius: 12px;
+$shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: $bg-color;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-container {
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+}
+
+.form-wrapper {
+  background-color: #fff;
+  border-radius: $card-radius;
+  box-shadow: $shadow;
+  padding: 2rem;
+}
+
+.card-header {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-weight: bold;
+  margin: 0.75rem 0 0.25rem;
+  display: block;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: $primary;
+  color: #fff;
+  
+  &:hover {
+    background-color: color.adjust($primary, $lightness: -10%);
+  }
+}
+
+.btn-danger {
+  background-color: $danger;
+  color: #fff;
+  
+  &:hover {
+    background-color: color.adjust($danger, $lightness: -10%);
+  }
+}
+
+.alert {
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.protected-content {
+  display: none;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.text-muted {
+  color: #6c757d;
+}
+
+.badge {
+  padding: 0.35em 0.65em;
+  border-radius: 0.25rem;
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+.bg-info {
+  background-color: $info;
+}
+  

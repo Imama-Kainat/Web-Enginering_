@@ -1,0 +1,15 @@
+How to run a mern app ? frontend ,, backend package.json se kesa smjana he ke kiea krna he 
+
+mid 1 : html, css , js,jquery
+
+mid2 : mern (react, node , express , node ko chalana kesa he ager pehla se bna koi project mila use complete krne ke liea ) 
+
+finals : microsevrices , authentication ,authorization (jwt, bkt, social login , role base access , perminssion base , two factor authencatiton, frontend authorization)
+
+bootstrap , tailwind, css, saas
+
+
+Google docs : https://docs.google.com/document/d/1R-VchLB4RBJNTfyga6yqfw6zaWi4YllLvaQj8vnrDe0/edit?usp=sharing
+
+
+

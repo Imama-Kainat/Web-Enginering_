@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+  <h2>Feedback Form</h2>
+  <div id="alert"></div>
+  <form id="feedbackForm">
+    <div class="mb-3">
+      <label>Name</label>
+      <input type="text" id="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Email</label>
+      <input type="email" id="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label>Message</label>
+      <textarea id="message" class="form-control" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <hr>
+  <h4>Submitted Feedback</h4>
+  <ul class="list-group" id="feedbackList"></ul>
+
+  <script>
+    const form = document.getElementById('feedbackForm');
+    const alertBox = document.getElementById('alert');
+    const feedbackList = document.getElementById('feedbackList');
+
+    async function loadFeedback() {
+      const res = await fetch('/api/feedback');
+      const data = await res.json();
+      feedbackList.innerHTML = '';
+      data.forEach(f => {
+        feedbackList.innerHTML += `<li class="list-group-item"><strong>${f.name}</strong> (${f.email})<br>${f.message}</li>`;
+      });
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      alertBox.innerHTML = '';
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+        alertBox.innerHTML = '<div class="alert alert-danger">All fields are required</div>';
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/feedback', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, message })
+        });
+
+        const result = await res.json();
+        if (res.ok) {
+          alertBox.innerHTML = `<div class="alert alert-success">${result.message}</div>`;
+          form.reset();
+          loadFeedback();
+        } else {
+          alertBox.innerHTML = `<div class="alert alert-danger">${result.message}</div>`;
+        }
+      } catch (err) {
+        alertBox.innerHTML = '<div class="alert alert-danger">Failed to submit feedback</div>';
+      }
+    });
+
+    loadFeedback();
+  </script>
+</body>
+</html>

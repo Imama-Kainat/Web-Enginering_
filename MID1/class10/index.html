@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .input-section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 8px;
+            flex: 1;
+        }
+
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .add-expense {
+            background-color: #ff4444;
+            color: white;
+        }
+
+        .add-income {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .totals {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .total-box {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            color: white;
+        }
+
+        .credit-box {
+            background: linear-gradient(145deg, #ff6666, #cc3333);
+        }
+
+        .debit-box {
+            background: linear-gradient(145deg, #66cc66, #339933);
+        }
+
+        .transaction-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .delete-btn {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        
+        <div class="input-section">
+            <input type="text" id="name" placeholder="Expense name">
+            <input type="number" id="amount" placeholder="Amount">
+        </div>
+
+        <div class="input-section">
+            <button class="add-expense" onclick="addTransaction('debit')">Add Expense</button>
+            <button class="add-income" onclick="addTransaction('credit')">Add Income</button>
+        </div>
+
+        <div class="totals">
+            <div class="total-box credit-box">Credit: Rs.<span id="creditTotal">0</span></div>
+            <div class="total-box debit-box">Debit: Rs.<span id="debitTotal">0</span></div>
+        </div>
+
+        <div class="transaction-list" id="transactionList"></div>
+    </div>
+
+    <script>
+        let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
+        function saveTransactions() {
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+        }
+
+        function addTransaction(type) {
+            const nameInput = document.getElementById('name');
+            const amountInput = document.getElementById('amount');
+
+            if (!nameInput.value || !amountInput.value) {
+                alert('Please fill both fields');
+                return;
+            }
+
+            const transaction = {
+                id: Date.now(),
+                name: nameInput.value,
+                amount: parseFloat(amountInput.value),
+                type: type
+            };
+
+            transactions.push(transaction);
+            saveTransactions();
+            renderTransactions();
+            updateTotals();
+
+            nameInput.value = '';
+            amountInput.value = '';
+        }
+
+        function deleteTransaction(id) {
+            transactions = transactions.filter(t => t.id !== id);
+            saveTransactions();
+            renderTransactions();
+            updateTotals();
+        }
+
+        function updateTotals() {
+            const creditTotal = transactions
+                .filter(t => t.type === 'debit')
+                .reduce((sum, t) => sum + t.amount, 0);
+
+            const debitTotal = transactions
+                .filter(t => t.type === 'credit')
+                .reduce((sum, t) => sum + t.amount, 0);
+
+            document.getElementById('creditTotal').textContent = creditTotal.toFixed(2);
+            document.getElementById('debitTotal').textContent = debitTotal.toFixed(2);
+        }
+
+        function renderTransactions() {
+            const list = document.getElementById('transactionList');
+            list.innerHTML = '';
+
+            transactions.forEach(transaction => {
+                const transactionEl = document.createElement('div');
+                transactionEl.className = 'transaction-item';
+                transactionEl.innerHTML = `
+                    <span>${transaction.name}</span>
+                    <span style="color: ${transaction.type === 'credit' ? 'green' : 'red'}">
+                        Rs.${transaction.amount.toFixed(2)}
+                    </span>
+                    <button class="delete-btn" onclick="deleteTransaction(${transaction.id})">Delete</button>
+                `;
+                list.appendChild(transactionEl);
+            });
+        }
+
+        // Initial render
+        renderTransactions();
+        updateTotals();
+    </script>
+</body>
+</html>

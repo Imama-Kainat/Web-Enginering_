@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #e1bee7, #d1c4e9); /* Gradient background */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto; /* Center the container */
+}
+
+.students, .courses {
+    width: 45%;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    transition: transform 0.3s; /* Smooth hover effect */
+}
+
+.students:hover, .courses:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+h2 {
+    margin-top: 0;
+    color: #6a1b9a; /* Dark purple */
+    font-size: 1.8em; /* Larger font size */
+}
+
+h3 {
+    margin: 15px 0;
+    color: #7b1fa2; /* Medium purple */
+    font-size: 1.5em; /* Larger font size */
+}
+
+select, button {
+    padding: 12px;
+    border: 2px solid #9c27b0; /* Purple border */
+    border-radius: 8px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 1em; /* Increased font size */
+    transition: border-color 0.3s, background-color 0.3s; /* Smooth transitions */
+}
+
+select:focus, button:focus {
+    outline: none;
+    border-color: #ab47bc; /* Lighter purple on focus */
+}
+
+button {
+    background-color: #8e24aa; /* Button background */
+    color: white;
+    border: none;
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #7b1fa2; /* Darker purple on hover */
+    transform: translateY(-2px); /* Lift effect */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 15px 0;
+    display: flex;
+    align-items: center; /* Center checkbox vertically */
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.5); /* Larger checkboxes for better interaction */
+    cursor: pointer; /* Pointer cursor for checkboxes */
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #6a1b9a; /* Dark purple for footer text */
+    font-size: 0.9em; /* Smaller font size */
+}

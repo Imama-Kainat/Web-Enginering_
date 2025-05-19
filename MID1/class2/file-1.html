@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Demo Project</title>
+    <style>
+      /* Style to make the table visible */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+      }
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f4f4f4;
+      }
+
+      /* Profile Picture Small */
+      .profile-picture {
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+      }
+
+      .profile-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      #my-name{
+        font-weight: bold;
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to my demo project</h1>
+
+    <header>
+      <nav id="navbar">
+        <ul class="nav-links">
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#fvrt_movies">Favourite Movies</a></li>
+          <li><a href="#dig_lib">My Digital Library</a></li>
+          <li><a href="#skills">My Skills</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>
+          Hi, I am <span id="my-name">Nehal</span>. I am a web developer. I love to code and create new
+          things. I am a quick learner and always ready to learn new things.
+        </p>
+        <span class="profile-picture">
+          <img src="image.jpg" alt="Nehal" class="profile-img" />
+        </span>
+      </section>
+
+      <section id="fvrt_movies" class="section">
+        <h2>Some of My Favourite Movies</h2>
+        <ul class="movies-list">
+          <li>Escape Room</li>
+          <li>Lights Out</li>
+          <li>Annabelle</li>
+        </ul>
+        <div class="video-container">
+          <h3>Escape Room Trailer</h3>
+          <iframe
+            id="movie-trailer"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/6dSKUoV0SNI?autoplay=1"
+            title="Escape Room Trailer"
+            frameborder="0"
+            allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </section>
+
+      <section id="dig_lib" class="section">
+        <h2>My Digital Library</h2>
+        <table id="song-table">
+          <thead>
+            <tr>
+              <th>Song Name</th>
+              <th>Audio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="song-item">
+              <td>Cheap Thrills</td>
+              <td>
+                <audio controls class="audio-control">
+                  <source src="song2.mp3" type="audio/mpeg" />
+                </audio>
+              </td>
+            </tr>
+            <tr class="song-item">
+              <td>Dreamers</td>
+              <td>
+                <audio controls class="audio-control">
+                  <source
+                    src="https://westsidemusicblog.net/wp-content/uploads/2022/11/Jungkook-Dreamers-.mp3"
+                    type="audio/mpeg"
+                  />
+                </audio>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="skills" class="section">
+        <h2>My Skills</h2>
+        <ul class="skills-list">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Say Something About Me!</h2>
+        <form id="contact-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" class="input-field" required /><br />
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" class="input-field" required /><br />
+          
+          <label for="number">Number:</label>
+          <input type="tel" id="contact-number" name="contact-number"
+          pattern="\d{4}-\d{7}" title="Phone number format: 0321-4567893" class="input-field" required /><br />
+          
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" class="input-field" required></textarea>
+          
+          <button type="submit" id="submit-btn">Submit</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; Copyright 2024 Nehal</p>
+    </footer>
+  </body>
+</html>
