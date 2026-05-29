@@ -32,7 +32,7 @@ This README file contains links to some helpful YouTube videos for learning **HT
 **Guide  Link**: [Mongo Beginner ](https://github.com/Imama-Kainat/Web-Engineering/blob/main/MONG.md) |Harry | Sherian Coding School 
 
 ### 6. **TailwindCSS** 
-**Guide  Link**: [Tailwind Beginner ](https://github.com/Imama-Kainat/Web-Engineering/tailwind.md) |Harry | Sherian Coding School 
+**Guide  Link**: [Tailwind Beginner ](https://github.com/Imama-Kainat/Web-Enginering_/blob/main/tailwind.md) |Harry | Sherian Coding School 
 
 
 
